@@ -11,13 +11,13 @@
             "parameters": {
                 "testdef_repos": [
                     {
-                        "git-repo": "http://git.linaro.org/people/alex.bennee/test-definitions.git",
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
                         "parameters": {
                             "BUILD_OPTS": "",
                             "TARGET": "aarch64-softmmu"
                         },
                         "revision": "master",
-                        "testdef": "ubuntu/build-qemu-from-source.yaml"
+                        "testdef": "build-qemu-from-source.yaml"
                     },
                     {
                         "git-repo": "http://git.linaro.org/people/alex.bennee/test-definitions.git",
@@ -59,3 +59,4 @@
     "job_name": "build-qemu-master-aarch64-run-uefi-luvOS",
     "timeout": 1800
 }
+
