@@ -1,0 +1,64 @@
+{
+    "actions": [
+        {
+            "command": "deploy_linaro_image",
+            "parameters": {
+                "image": "http://people.linaro.org/~matthew.hart/images/trusty-lg.img.gz"
+            }
+        },
+        {
+            "command": "lava_test_shell",
+            "parameters": {
+                "testdef_repos": [
+                    {
+                        "git-repo": "http://git.linaro.org/people/alex.bennee/test-definitions.git",
+                        "parameters": {
+                            "BUILD_OPTS": "",
+                            "TARGET": "aarch64-softmmu"
+                        },
+                        "revision": "master",
+                        "testdef": "ubuntu/build-qemu-from-source.yaml"
+                    },
+                    {
+                        "git-repo": "http://git.linaro.org/people/alex.bennee/test-definitions.git",
+                        "parameters": {
+                            "IMAGE": "http://people.linaro.org/~alex.bennee/images/aarch64-linux-buildroot.img",
+                            "KERNEL_ARGS": "console=ttyAMA0",
+                            "QEMU_ARGS": "-machine virt -cpu cortex-a57 -machine type=virt -nographic -smp 1 -m 396",
+                            "QEMU_BIN": "/usr/local/bin/qemu-system-aarch64",
+                            "TESTS": "boot stress"
+                        },
+                        "revision": "qemu-testing",
+                        "testdef": "ubuntu/qemu-system-test.yaml"
+                    },
+                    {
+                        "git-repo": "http://git.linaro.org/people/alex.bennee/test-definitions.git",
+                        "parameters": {
+                            "IMAGE": "http://people.linaro.org/~alex.bennee/images/aarch64-linux-3.15rc2-aarch32-buildroot.img",
+                            "KERNEL_ARGS": "console=ttyAMA0",
+                            "QEMU_ARGS": "-machine virt -cpu cortex-a57 -machine type=virt -nographic -smp 1 -m 396",
+                            "QEMU_BIN": "/usr/local/bin/qemu-system-aarch64",
+                            "TESTS": "boot stress"
+                        },
+                        "revision": "qemu-testing",
+                        "testdef": "ubuntu/qemu-system-test.yaml"
+                    }
+                ],
+                "timeout": 18000
+            }
+        },
+        {
+            "command": "submit_results",
+            "parameters": {
+                "server": "http://validation.linaro.org/RPC2/",
+                "stream": "/anonymous/heyi-guo/"
+            }
+        }
+    ],
+    "device_type": "kvm",
+    "job_name": "build-qemu-master-aarch64-run-uefi-luvOS",
+    "tags": [
+        "leg-uefi"
+    ],
+    "timeout": 1800
+}

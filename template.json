@@ -1,0 +1,34 @@
+{
+   "health_check": false,
+   "logging_level": "DEBUG",
+   "timeout": 900,
+   "job_name": "kvm-basic-test",
+   "device_type": "kvm",
+   "actions": [
+       {
+           "command": "deploy_linaro_image",
+           "parameters": {
+               "image": "http://images.validation.linaro.org/kvm-debian-wheezy.img.gz"
+           }
+       },
+       {
+           "command": "lava_test_shell",
+           "parameters": {
+               "testdef_repos": [
+                   {
+                       "git-repo": "git://git.linaro.org/qa/test-definitions.git",
+                       "testdef": "ubuntu/smoke-tests-basic.yaml"
+                   }
+               ],
+               "timeout": 900
+           }
+       },
+       {
+           "command": "submit_results_on_host",
+           "parameters": {
+               "stream": "/anonymous/example/",
+               "server": "http://localhost/RPC2/"
+           }
+       }
+   ]
+}
