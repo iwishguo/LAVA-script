@@ -3,7 +3,7 @@
         {
             "command": "deploy_linaro_image",
             "parameters": {
-                "image": "http://people.linaro.org/~matthew.hart/images/trusty-lg.img.gz"
+                "image": "http://images.validation.linaro.org/kvm/jessie.img.gz"
             }
         },
         {
@@ -57,8 +57,5 @@
     ],
     "device_type": "kvm",
     "job_name": "build-qemu-master-aarch64-run-uefi-luvOS",
-    "tags": [
-        "leg-uefi"
-    ],
     "timeout": 1800
 }
