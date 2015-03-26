@@ -48,7 +48,7 @@ install:
         - libusb-1.0-0-dev
         - librados-dev
         - libncurses5-dev
-        - libgnutls-dev
+        - libgnutls28-dev
         - libnss3-dev
         
 run:
