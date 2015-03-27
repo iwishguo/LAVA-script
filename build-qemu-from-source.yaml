@@ -25,7 +25,7 @@ install:
     # test results in the run steps.
     steps:
         - cd ${HOME}
-	- df -h
+        - df -h
         - git clone ${REPO} qemu.git
         - cd qemu.git
         - git checkout ${TAG}
