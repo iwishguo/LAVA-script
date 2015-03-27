@@ -1,7 +1,7 @@
 metadata:
-    name: qemu-build
+    name: LuvOS-build
     format: "Lava-Test-Shell Test Definition 1.0"
-    description: "Build QEMU from source"
+    description: "Build LuvOS"
     maintainer:
         - heyi.guo@linaro.org
     os:
