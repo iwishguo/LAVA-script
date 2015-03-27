@@ -12,7 +12,7 @@ metadata:
         - kvm
         - x86
 
-params:
+#params:
 
 install:
     # As we sometimes need an installed QEMU for other steps the actual build will
