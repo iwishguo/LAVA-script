@@ -12,7 +12,8 @@ metadata:
         - kvm
         - x86
 
-#params:
+params:
+    HOME: /home/luv
 
 install:
     # As we sometimes need an installed QEMU for other steps the actual build will
@@ -22,7 +23,8 @@ install:
         - df -h
         - apt-get clean
         - df -h
-        - useradd -d /home/luv -m -s /bin/bash luv
+        - useradd -d $HOME -m -s /bin/bash luv
+        - echo 'export PS1="linaro-test [rc=$(echo \$?)]# "' > $HOME/.bashrc
         - su luv
         - cd $HOME
         - pwd
@@ -50,6 +52,5 @@ install:
         
 run:
     steps:
-       - cd $HOME/luv-yocto/build
        - lava-test-case luvos-make --shell bitbake luv-live-image
 
