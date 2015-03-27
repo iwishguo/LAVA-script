@@ -36,9 +36,7 @@ install:
         - diffstat
         - gawk
         - chrpath
-        - libsdl2-dev
         - libsdl1.2-dev
-        - syslinux-utils
         - parted
         
 run:
