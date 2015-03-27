@@ -26,39 +26,26 @@ install:
     steps:
         - cd ${HOME}
         - df -h
-        - rm -f pad*
-        - df -h
         - apt-get clean
         - df -h
-        - git clone ${REPO} qemu.git
-        - cd qemu.git
-        - git checkout ${TAG}
-        - ./configure ${BUILD_OPTS} --target-list=${TARGET}
-        - make
-        - make install
 
     deps:
         - build-essential
         - python
         - git-core
-        - pkg-config
-        - autoconf
-        - automake
-        - autotools-dev
-        - libtool
-        - bison
-        - flex
-        - zlib1g-dev
-        - libglib2.0-dev
-        - libusb-1.0-0-dev
-        - librados-dev
-        - libncurses5-dev
-        - libgnutls28-dev
-        - libnss3-dev
+        - diffstat
+        - gawk
+        - chrpath
+        - libsdl2-dev
+        - libsdl1.2-dev
+        - syslinux-utils
+        - parted
         
 run:
     steps:
-        - cd ${HOME}/qemu.git
-        - lava-test-case qemu-make --shell make
-        - lava-test-case qemu-make-install --shell make install
-        - lava-test-case qemu-make-check --shell make check
+        - git clone http://git.linaro.org/people/naresh.bhat/luvOS/luv-yocto.git
+        - cd luv-yocto
+        - git branch v2-upstream origin/v2-upstream
+        - git checkout v2-upstream
+        - . ./oe-init-build-env
+        - lava-test-case luvos-make --shell bitbake luv-live-image
