@@ -13,18 +13,12 @@ metadata:
         - x86
 
 params:
-    REPO: git://git.qemu.org/qemu.git
-#BRANCH: master
-    TAG: v2.2.1
-    TARGET: aarch64-softmmu
-    BUILD_OPTS: 
 
 install:
     # As we sometimes need an installed QEMU for other steps the actual build will
     # be done in the install steps. However we repeat the build targets to get the
     # test results in the run steps.
     steps:
-        - cd ${HOME}
         - df -h
         - apt-get clean
         - df -h
@@ -41,9 +35,19 @@ install:
         
 run:
     steps:
+        - useradd -d /home/luv -m -s /bin/bash luv
+        - su luv
+        - cd
+        - pwd
         - git clone http://git.linaro.org/people/naresh.bhat/luvOS/luv-yocto.git
         - cd luv-yocto
         - git branch v2-upstream origin/v2-upstream
         - git checkout v2-upstream
         - . ./oe-init-build-env
+        - git clone http://github.com/iwishguo/LAVA-script.git
+        - chmod a+x LAVA-script/*.pl
+        - LAVA-script/modify_local_conf.pl conf/local.conf > conf/local.conf.new
+        - mv conf/local.conf.new conf/local.conf
+        - LAVA-script/modify_bb_conf.pl conf/bblayers.conf > conf/bblayers.conf.new
+        - mv conf/bblayers.conf.new conf/bblayers.conf
         - lava-test-case luvos-make --shell bitbake luv-live-image
