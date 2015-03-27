@@ -4,10 +4,6 @@
             "command": "deploy_linaro_image",
             "parameters": {
                 "image": "http://images.validation.linaro.org/kvm-debian-wheezy.img.gz"
-#"customize": {
-#                    "http://images.validation.linaro.org/kvm/large-sid.img.gz": ["rootfs:/pad0", "rootfs:/pad1", "rootfs:/pad2", "rootfs:/pad3", "rootfs:/pad4", "rootfs:/pad5"]
-#                }
-
             }
         },
         {
