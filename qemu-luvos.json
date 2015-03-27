@@ -17,31 +17,7 @@
                             "TARGET": "aarch64-softmmu"
                         },
                         "revision": "master",
-                        "testdef": "build-qemu-from-source.yaml"
-                    },
-                    {
-                        "git-repo": "http://git.linaro.org/people/alex.bennee/test-definitions.git",
-                        "parameters": {
-                            "IMAGE": "http://people.linaro.org/~alex.bennee/images/aarch64-linux-buildroot.img",
-                            "KERNEL_ARGS": "console=ttyAMA0",
-                            "QEMU_ARGS": "-machine virt -cpu cortex-a57 -machine type=virt -nographic -smp 1 -m 396",
-                            "QEMU_BIN": "/usr/local/bin/qemu-system-aarch64",
-                            "TESTS": "boot stress"
-                        },
-                        "revision": "qemu-testing",
-                        "testdef": "ubuntu/qemu-system-test.yaml"
-                    },
-                    {
-                        "git-repo": "http://git.linaro.org/people/alex.bennee/test-definitions.git",
-                        "parameters": {
-                            "IMAGE": "http://people.linaro.org/~alex.bennee/images/aarch64-linux-3.15rc2-aarch32-buildroot.img",
-                            "KERNEL_ARGS": "console=ttyAMA0",
-                            "QEMU_ARGS": "-machine virt -cpu cortex-a57 -machine type=virt -nographic -smp 1 -m 396",
-                            "QEMU_BIN": "/usr/local/bin/qemu-system-aarch64",
-                            "TESTS": "boot stress"
-                        },
-                        "revision": "qemu-testing",
-                        "testdef": "ubuntu/qemu-system-test.yaml"
+                        "testdef": "build-luvos-from-source.yaml"
                     }
                 ],
                 "timeout": 18000
