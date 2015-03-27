@@ -22,22 +22,9 @@ install:
         - df -h
         - apt-get clean
         - df -h
-
-    deps:
-        - build-essential
-        - python
-        - git-core
-        - diffstat
-        - gawk
-        - chrpath
-        - libsdl1.2-dev
-        - parted
-        
-run:
-    steps:
         - useradd -d /home/luv -m -s /bin/bash luv
         - su luv
-        - cd
+        - cd $(HOME)
         - pwd
         - git clone http://git.linaro.org/people/naresh.bhat/luvOS/luv-yocto.git
         - cd luv-yocto
@@ -50,4 +37,19 @@ run:
         - mv conf/local.conf.new conf/local.conf
         - LAVA-script/modify_bb_conf.pl conf/bblayers.conf > conf/bblayers.conf.new
         - mv conf/bblayers.conf.new conf/bblayers.conf
-        - lava-test-case luvos-make --shell bitbake luv-live-image
+ 
+    deps:
+        - build-essential
+        - python
+        - git-core
+        - diffstat
+        - gawk
+        - chrpath
+        - libsdl1.2-dev
+        - parted
+        
+run:
+    steps:
+       - cd $HOME/luv-yocto/build
+       - lava-test-case luvos-make --shell bitbake luv-live-image
+
