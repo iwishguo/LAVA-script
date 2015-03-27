@@ -26,6 +26,10 @@ install:
     steps:
         - cd ${HOME}
         - df -h
+        - rm -f pad*
+        - df -h
+        - apt-get clean
+        - df -h
         - git clone ${REPO} qemu.git
         - cd qemu.git
         - git checkout ${TAG}
