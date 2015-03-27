@@ -24,7 +24,7 @@ install:
         - df -h
         - useradd -d /home/luv -m -s /bin/bash luv
         - su luv
-        - cd $(HOME)
+        - cd $HOME
         - pwd
         - git clone http://git.linaro.org/people/naresh.bhat/luvOS/luv-yocto.git
         - cd luv-yocto
