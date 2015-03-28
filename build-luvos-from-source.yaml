@@ -12,9 +12,6 @@ metadata:
         - kvm
         - x86
 
-params:
-    HOME: /home/luv
-
 install:
     # As we sometimes need an installed QEMU for other steps the actual build will
     # be done in the install steps. However we repeat the build targets to get the
@@ -24,22 +21,9 @@ install:
         - apt-get clean
         - df -h
         - useradd -d $HOME -m -s /bin/bash luv
-        - echo 'export PS1="linaro-test [rc=$(echo \$?)]# "' > $HOME/.bashrc
-        - su luv
-        - cd $HOME
-        - pwd
-        - git clone http://git.linaro.org/people/naresh.bhat/luvOS/luv-yocto.git
-        - cd luv-yocto
-        - git branch v2-upstream origin/v2-upstream
-        - git checkout v2-upstream
-        - . ./oe-init-build-env
         - git clone http://github.com/iwishguo/LAVA-script.git
-        - chmod a+x LAVA-script/*.pl
-        - LAVA-script/modify_local_conf.pl conf/local.conf > conf/local.conf.new
-        - mv conf/local.conf.new conf/local.conf
-        - LAVA-script/modify_bb_conf.pl conf/bblayers.conf > conf/bblayers.conf.new
-        - mv conf/bblayers.conf.new conf/bblayers.conf
- 
+	- chmod a+x LAVA-script/luv-build-batch.sh
+
     deps:
         - build-essential
         - python
@@ -52,5 +36,5 @@ install:
         
 run:
     steps:
-       - lava-test-case luvos-make --shell bitbake luv-live-image
+       - lava-test-case luvos-make --shell su luv -c LAVA-script/luv-build-batch.sh
 
