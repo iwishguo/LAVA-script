@@ -33,6 +33,7 @@ install:
         - chrpath
         - libsdl1.2-dev
         - parted
+        - texinfo
         
 run:
     steps:
