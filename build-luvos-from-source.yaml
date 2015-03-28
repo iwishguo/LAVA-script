@@ -22,7 +22,7 @@ install:
         - df -h
         - useradd -d $HOME -m -s /bin/bash luv
         - git clone http://github.com/iwishguo/LAVA-script.git
-	- chmod a+x LAVA-script/luv-build-batch.sh
+        - chmod a+x LAVA-script/luv-build-batch.sh
 
     deps:
         - build-essential
