@@ -3,7 +3,7 @@
         {
             "command": "deploy_linaro_image",
             "parameters": {
-                "image": "http://images.validation.linaro.org/kvm-debian-wheezy.img.gz"
+                "image": "http://images.validation.linaro.org/kvm/large-sid.img.gz"
             }
         },
         {
@@ -14,10 +14,10 @@
                         "git-repo": "http://github.com/iwishguo/LAVA-script.git",
                         "parameters": {
                             "BUILD_OPTS": "",
-                            "TARGET": "aarch64-softmmu"
+                            "TARGET": ""
                         },
                         "revision": "master",
-                        "testdef": "build-luvos-from-source.yaml"
+                        "testdef": "build-linaro-edk2.yaml"
                     }
                 ],
                 "timeout": 18000
@@ -32,7 +32,7 @@
         }
     ],
     "device_type": "kvm",
-    "job_name": "build-qemu-master-aarch64-run-uefi-luvOS",
+    "job_name": "pure-linaro-edk2-build-test",
     "timeout": 1800
 }
 
