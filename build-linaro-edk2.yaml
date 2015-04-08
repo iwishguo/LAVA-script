@@ -38,6 +38,8 @@ run:
        - cd ${HOME}/linaro-edk2
        - pwd
        - ls
+       - ls ..
+       - ls ../uefi-tools
        - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
        - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
        - lava-test-case juno-debug-clean --shell ../uefi-tools/uefi-build.sh -b DEBUG juno cleanall
