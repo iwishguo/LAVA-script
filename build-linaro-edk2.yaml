@@ -23,7 +23,7 @@ install:
         - rm ${GCC_REV}.tar.xz
         - export PATH=$PATH:`pwd`/${GCC_REV}/bin
         - git clone http://git.linaro.org/uefi/linaro-edk2.git
-        - git clone http://git.linaro.org/uefi/linaro-edk2-tools.git
+        - git clone http://git.linaro.org/uefi/linaro-edk2-tools.git uefi-tools
         - cd linaro-edk2
 
     deps:
