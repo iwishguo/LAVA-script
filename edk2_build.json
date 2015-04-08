@@ -1,0 +1,38 @@
+{
+    "actions": [
+        {
+            "command": "deploy_linaro_image",
+            "parameters": {
+                "image": "http://images.validation.linaro.org/kvm-debian-wheezy.img.gz"
+            }
+        },
+        {
+            "command": "lava_test_shell",
+            "parameters": {
+                "testdef_repos": [
+                    {
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "parameters": {
+                            "BUILD_OPTS": "",
+                            "TARGET": "aarch64-softmmu"
+                        },
+                        "revision": "master",
+                        "testdef": "build-luvos-from-source.yaml"
+                    }
+                ],
+                "timeout": 18000
+            }
+        },
+        {
+            "command": "submit_results",
+            "parameters": {
+                "server": "http://validation.linaro.org/RPC2/",
+                "stream": "/anonymous/heyi-guo/"
+            }
+        }
+    ],
+    "device_type": "kvm",
+    "job_name": "build-qemu-master-aarch64-run-uefi-luvOS",
+    "timeout": 1800
+}
+
