@@ -18,6 +18,7 @@ install:
         - df -h
         - apt-get clean
         - df -h
+				- cd ${HOME}
         - wget http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
         - tar -xvJf ${GCC_REV}.tar.xz
         - rm ${GCC_REV}.tar.xz
@@ -32,7 +33,7 @@ install:
  
 run:
     steps:
-       - cd linaro-edk2
+       - cd ${HOME}/linaro-edk2
        - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
        - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
        - lava-test-case juno-debug-clean --shell ../uefi-tools/uefi-build.sh -b DEBUG juno cleanall
