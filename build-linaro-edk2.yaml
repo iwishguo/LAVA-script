@@ -21,7 +21,7 @@ install:
         - cd ${HOME}
         - pwd
         - wget http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
-        - tar -xvJf ${GCC_REV}.tar.xz
+        - tar -xJf ${GCC_REV}.tar.xz
         - rm ${GCC_REV}.tar.xz
         - export PATH=$PATH:`pwd`/${GCC_REV}/bin
         - git clone http://git.linaro.org/uefi/linaro-edk2.git
