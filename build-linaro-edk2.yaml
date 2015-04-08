@@ -1,7 +1,7 @@
 metadata:
-    name: LuvOS-build
+    name: linaro-edk2-build
     format: "Lava-Test-Shell Test Definition 1.0"
-    description: "Build LuvOS"
+    description: "Pure build test for Linaro edk2"
     maintainer:
         - heyi.guo@linaro.org
     os:
@@ -11,31 +11,30 @@ metadata:
     devices:
         - kvm
         - x86
-
+params:
+    GCC_REV: gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu
 install:
-    # As we sometimes need an installed QEMU for other steps the actual build will
-    # be done in the install steps. However we repeat the build targets to get the
-    # test results in the run steps.
     steps:
         - df -h
         - apt-get clean
         - df -h
-        - useradd -d $HOME -m -s /bin/bash luv
-        - git clone http://github.com/iwishguo/LAVA-script.git
-        - chmod a+x LAVA-script/luv-build-batch.sh
+				- wget http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
+				- tar -xvJf ${GCC_REV}.tar.xz
+				- rm ${GCC_REV}.tar.xz
+				- export PATH=$PATH:`pwd`/${GCC_REV}/bin
+        - git clone http://git.linaro.org/uefi/linaro-edk2.git
+				- git clone http://git.linaro.org/uefi/linaro-edk2-tools.git
+				- cd linaro-edk2
 
     deps:
         - build-essential
         - python
         - git-core
-        - diffstat
-        - gawk
-        - chrpath
-        - libsdl1.2-dev
-        - parted
-        - texinfo
-        
+ 
 run:
     steps:
-       - lava-test-case luvos-make --shell su luv -c LAVA-script/luv-build-batch.sh
+       - lava-test-case luvos-make --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
+       - lava-test-case luvos-make --shell ../uefi-tools/uefi-build.sh -b DEBUG juno cleanall
+       - lava-test-case luvos-make --shell ../uefi-tools/uefi-build.sh -b RELEASE juno
+       - lava-test-case luvos-make --shell ../uefi-tools/uefi-build.sh -b RELEASE juno cleanall
 
