@@ -18,13 +18,13 @@ install:
         - df -h
         - apt-get clean
         - df -h
-				- wget http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
-				- tar -xvJf ${GCC_REV}.tar.xz
-				- rm ${GCC_REV}.tar.xz
-				- export PATH=$PATH:`pwd`/${GCC_REV}/bin
+        - wget http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
+        - tar -xvJf ${GCC_REV}.tar.xz
+        - rm ${GCC_REV}.tar.xz
+        - export PATH=$PATH:`pwd`/${GCC_REV}/bin
         - git clone http://git.linaro.org/uefi/linaro-edk2.git
-				- git clone http://git.linaro.org/uefi/linaro-edk2-tools.git
-				- cd linaro-edk2
+        - git clone http://git.linaro.org/uefi/linaro-edk2-tools.git
+        - cd linaro-edk2
 
     deps:
         - build-essential
