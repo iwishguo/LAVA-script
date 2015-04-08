@@ -1,0 +1,41 @@
+metadata:
+    name: LuvOS-build
+    format: "Lava-Test-Shell Test Definition 1.0"
+    description: "Build LuvOS"
+    maintainer:
+        - heyi.guo@linaro.org
+    os:
+        - Debian
+    scope:
+        - functional
+    devices:
+        - kvm
+        - x86
+
+install:
+    # As we sometimes need an installed QEMU for other steps the actual build will
+    # be done in the install steps. However we repeat the build targets to get the
+    # test results in the run steps.
+    steps:
+        - df -h
+        - apt-get clean
+        - df -h
+        - useradd -d $HOME -m -s /bin/bash luv
+        - git clone http://github.com/iwishguo/LAVA-script.git
+        - chmod a+x LAVA-script/luv-build-batch.sh
+
+    deps:
+        - build-essential
+        - python
+        - git-core
+        - diffstat
+        - gawk
+        - chrpath
+        - libsdl1.2-dev
+        - parted
+        - texinfo
+        
+run:
+    steps:
+       - lava-test-case luvos-make --shell su luv -c LAVA-script/luv-build-batch.sh
+
