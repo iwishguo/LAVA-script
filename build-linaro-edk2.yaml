@@ -18,7 +18,7 @@ install:
         - df -h
         - apt-get clean
         - df -h
-				- cd ${HOME}
+        - cd ${HOME}
         - wget http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
         - tar -xvJf ${GCC_REV}.tar.xz
         - rm ${GCC_REV}.tar.xz
