@@ -24,7 +24,6 @@ install:
         - export PATH=$PATH:`pwd`/${GCC_REV}/bin
         - git clone http://git.linaro.org/uefi/linaro-edk2.git
         - git clone http://git.linaro.org/uefi/linaro-edk2-tools.git uefi-tools
-        - cd linaro-edk2
 
     deps:
         - build-essential
@@ -33,6 +32,8 @@ install:
  
 run:
     steps:
+       - cd linaro-edk2
+       - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
        - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
        - lava-test-case juno-debug-clean --shell ../uefi-tools/uefi-build.sh -b DEBUG juno cleanall
        - lava-test-case juno-release --shell ../uefi-tools/uefi-build.sh -b RELEASE juno
