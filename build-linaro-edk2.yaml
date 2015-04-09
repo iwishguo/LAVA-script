@@ -29,6 +29,7 @@ install:
         - ls
 
     deps:
+        - uuid-dev
         - build-essential
         - python
         - git-core
