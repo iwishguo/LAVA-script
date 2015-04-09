@@ -44,6 +44,50 @@ run:
        - echo ${PATH}
        - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
        - rm -rf Build
-       - lava-test-case juno-release --shell ../uefi-tools/uefi-build.sh -b RELEASE juno
+       - lava-test-case juno-release --shell ../uefi-tools/uefi-build.sh -b RELEASE juno 
+       - rm -rf Build
+       - lava-test-case juno-intelbds-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno-intelbds
+       - rm -rf Build
+       - lava-test-case juno-intelbds-release --shell ../uefi-tools/uefi-build.sh -b RELEASE juno-intelbds 
+       - rm -rf Build
+       - lava-test-case fvp_full-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG fvp_full
+       - rm -rf Build
+       - lava-test-case fvp_full-release --shell ../uefi-tools/uefi-build.sh -b RELEASE fvp_full 
+       - rm -rf Build
+       - lava-test-case fvp_minimal-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG fvp_minimal
+       - rm -rf Build
+       - lava-test-case fvp_minimal-release --shell ../uefi-tools/uefi-build.sh -b RELEASE fvp_minimal 
+       - rm -rf Build
+       - lava-test-case fvp_no_eth-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG fvp_no_eth
+       - rm -rf Build
+       - lava-test-case fvp_no_eth-release --shell ../uefi-tools/uefi-build.sh -b RELEASE fvp_no_eth 
+       - rm -rf Build
+       - lava-test-case rtsm_aarch64-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG rtsm_aarch64
+       - rm -rf Build
+       - lava-test-case rtsm_aarch64-release --shell ../uefi-tools/uefi-build.sh -b RELEASE rtsm_aarch64 
+       - rm -rf Build
+       - lava-test-case foundation_legacy-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG foundation_legacy
+       - rm -rf Build
+       - lava-test-case foundation_legacy-release --shell ../uefi-tools/uefi-build.sh -b RELEASE foundation_legacy 
+       - rm -rf Build
+       - lava-test-case qemu64-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG qemu64
+       - rm -rf Build
+       - lava-test-case qemu64-release --shell ../uefi-tools/uefi-build.sh -b RELEASE qemu64 
+       - rm -rf Build
+       - lava-test-case qemu64-intelbds-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG qemu64-intelbds
+       - rm -rf Build
+       - lava-test-case qemu64-intelbds-release --shell ../uefi-tools/uefi-build.sh -b RELEASE qemu64-intelbds 
+       - rm -rf Build
+       - lava-test-case mustang-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG mustang
+       - rm -rf Build
+       - lava-test-case mustang-release --shell ../uefi-tools/uefi-build.sh -b RELEASE mustang 
+       - rm -rf Build
+       - lava-test-case styx-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG styx
+       - rm -rf Build
+       - lava-test-case styx-release --shell ../uefi-tools/uefi-build.sh -b RELEASE styx 
+       - rm -rf Build
+       - lava-test-case hikey-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG hikey
+       - rm -rf Build
+       - lava-test-case hikey-release --shell ../uefi-tools/uefi-build.sh -b RELEASE hikey 
        - rm -rf Build
 
