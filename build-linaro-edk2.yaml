@@ -23,7 +23,7 @@ install:
         - wget http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
         - tar -xJf ${GCC_REV}.tar.xz
         - rm ${GCC_REV}.tar.xz
-        - export PATH=$PATH:`pwd`/${GCC_REV}/bin
+        - export PATH=$PATH:${HOME}/${GCC_REV}/bin
         - git clone http://git.linaro.org/uefi/linaro-edk2.git
         - git clone http://git.linaro.org/uefi/uefi-tools.git
         - ls
@@ -38,9 +38,9 @@ run:
     steps:
        - cd ${HOME}/linaro-edk2
        - pwd
-       - ls
        - ls ..
        - ls ../uefi-tools
+       - echo ${PATH}
        - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
        - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
        - lava-test-case juno-debug-clean --shell ../uefi-tools/uefi-build.sh -b DEBUG juno cleanall
