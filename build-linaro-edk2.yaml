@@ -29,6 +29,7 @@ install:
 
     deps:
         - uuid-dev
+        - acpica-tools
         - build-essential
         - python
         - git-core
