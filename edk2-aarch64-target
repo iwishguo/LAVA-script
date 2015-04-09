@@ -1,0 +1,12 @@
+juno
+juno-intelbds
+fvp_full
+fvp_minimal
+fvp_no_eth
+rtsm_aarch64
+foundation_legacy
+qemu64
+qemu64-intelbds
+mustang
+styx
+hikey
