@@ -12,7 +12,6 @@ metadata:
         - kvm
         - x86
 params:
-    GCC_URL: http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu.tar.xz
 
 install:
     steps:

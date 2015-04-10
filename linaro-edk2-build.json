@@ -12,12 +12,14 @@
                 "testdef_repos": [
                     {
                         "git-repo": "http://github.com/iwishguo/LAVA-script.git",
-                        "parameters": {
-                            "BUILD_OPTS": "",
-                            "TARGET": ""
-                        },
                         "revision": "master",
-                        "testdef": "build-linaro-edk2.yaml"
+                        "testdef": "linaro-edk2-build-fetch-source.yaml",
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu.tar.xz"
+                        },
+                        "testdef": "linaro-edk2-build-fetch-gcc-aarch64.yaml",
+                        "testdef": "linaro-edk2-build-aarch64-all.yaml",
+                        "testdef": "linaro-edk2-build-remove-gcc-aarch64.yaml"
                     }
                 ],
                 "timeout": 18000
