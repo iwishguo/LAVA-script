@@ -20,11 +20,11 @@ install:
         - df -h
         - cd ${HOME}
         - pwd
-        - wget http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
+        - wget -nv http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
         - tar -xJf ${GCC_REV}.tar.xz
         - rm ${GCC_REV}.tar.xz
-        - git clone http://git.linaro.org/uefi/linaro-edk2.git
-        - git clone http://git.linaro.org/uefi/uefi-tools.git
+        - git clone -q http://git.linaro.org/uefi/linaro-edk2.git
+        - git clone -q http://git.linaro.org/uefi/uefi-tools.git
         - ls
 
     deps:
@@ -42,13 +42,19 @@ run:
        - ls ../uefi-tools
        - export PATH=$PATH:${HOME}/${GCC_REV}/bin
        - echo ${PATH}
+       - df
        - lava-test-case juno-debug --shell "../uefi-tools/uefi-build.sh -b DEBUG juno > build_log"
+       - df
        - tail -n 50 build_log
        - rm -rf Build
+       - df
        - lava-test-case juno-release --shell "../uefi-tools/uefi-build.sh -b RELEASE juno > build_log"
+       - df
        - tail -n 50 build_log
        - rm -rf Build
+       - df
        - lava-test-case juno-intelbds-debug --shell "../uefi-tools/uefi-build.sh -b DEBUG juno-intelbds > build_log"
+       - df
        - tail -n 50 build_log
        - rm -rf Build
        - lava-test-case juno-intelbds-release --shell "../uefi-tools/uefi-build.sh -b RELEASE juno-intelbds > build_log"
