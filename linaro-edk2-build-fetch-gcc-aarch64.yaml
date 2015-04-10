@@ -21,8 +21,8 @@ install:
 run:
     steps:
        - cd ${HOME}
-       - lava-test-case fetch-gcc --shell wget -nv ${GCC_URL}
+       - lava-test-case fetch-gcc-${GCC_REV} --shell wget -nv ${GCC_URL}
        - export GCC_FILE=`ls gcc-*.tar.xz`
-       - lava-test-case exact-gcc --shell tar -xJf ${GCC_FILE}
-       - lava-test-case remove-gcc-tarball --shell rm ${GCC_FILE}
+       - lava-test-case exact-gcc-${GCC_REV} --shell tar -xJf ${GCC_FILE}
+       - lava-test-case remove-gcc-tarball-${GCC_REV} --shell rm ${GCC_FILE}
 
