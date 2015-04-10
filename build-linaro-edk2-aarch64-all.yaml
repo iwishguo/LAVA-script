@@ -1,7 +1,7 @@
 metadata:
-    name: linaro-edk2-build
+    name: linaro-edk2-build-aarch64-all
     format: "Lava-Test-Shell Test Definition 1.0"
-    description: "Pure build test for Linaro edk2"
+    description: "Pure build test for Linaro edk2 all aarch64 target"
     maintainer:
         - heyi.guo@linaro.org
     os:
@@ -12,34 +12,16 @@ metadata:
         - kvm
         - x86
 params:
-    GCC_REV: gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu
 install:
     steps:
-        - df -h
-        - apt-get clean
-        - df -h
-        - cd ${HOME}
-        - pwd
-        - wget -nv http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
-        - tar -xJf ${GCC_REV}.tar.xz
-        - rm ${GCC_REV}.tar.xz
-        - git clone -q http://git.linaro.org/uefi/linaro-edk2.git
-        - git clone -q http://git.linaro.org/uefi/uefi-tools.git
-        - ls
 
     deps:
-        - uuid-dev
-        - acpica-tools
-        - build-essential
-        - python
-        - git-core
  
 run:
     steps:
        - cd ${HOME}/linaro-edk2
        - pwd
        - ls ..
-       - ls ../uefi-tools
        - export PATH=$PATH:${HOME}/${GCC_REV}/bin
        - echo ${PATH}
        - lava-test-case juno-debug --shell "../uefi-tools/uefi-build.sh -b DEBUG juno > build_log"

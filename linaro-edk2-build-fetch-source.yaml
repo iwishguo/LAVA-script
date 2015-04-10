@@ -1,0 +1,36 @@
+metadata:
+    name: linaro-edk2-build-fetch-source
+    format: "Lava-Test-Shell Test Definition 1.0"
+    description: "Fetch linaro edk2 source"
+    maintainer:
+        - heyi.guo@linaro.org
+    os:
+        - Debian
+    scope:
+        - functional
+    devices:
+        - kvm
+        - x86
+params:
+install:
+    steps:
+        - df -h
+        - apt-get clean
+        - df -h
+        - git clone -q http://git.linaro.org/uefi/linaro-edk2.git
+        - git clone -q http://git.linaro.org/uefi/uefi-tools.git
+
+    deps:
+        - uuid-dev
+        - acpica-tools
+        - build-essential
+        - python
+        - git-core
+ 
+run:
+    steps:
+       - cd ${HOME}
+       - pwd
+       - lava-test-case fetch-edk2 --shell "git clone -q http://git.linaro.org/uefi/linaro-edk2.git"
+       - lava-test-case fetch-uefi-tools --shell "git clone -q http://git.linaro.org/uefi/uefi-tools.git"
+

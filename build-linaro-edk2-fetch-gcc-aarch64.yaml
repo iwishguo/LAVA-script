@@ -1,0 +1,28 @@
+metadata:
+    name: linaro-edk2-build-fetch-gcc-aarch64
+    format: "Lava-Test-Shell Test Definition 1.0"
+    description: "Fetch aarch64 gcc"
+    maintainer:
+        - heyi.guo@linaro.org
+    os:
+        - Debian
+    scope:
+        - functional
+    devices:
+        - kvm
+        - x86
+params:
+    GCC_REV: gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu
+    LINARO_RELEASE: 14.11
+install:
+    steps:
+
+    deps:
+ 
+run:
+    steps:
+       - cd ${HOME}
+       - lava-test-case juno-debug --shell wget -nv http://releases.linaro.org/${LINARO_RELEASE}/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
+       - lava-test-case juno-debug --shell tar -xJf ${GCC_REV}.tar.xz
+       - rm ${GCC_REV}.tar.xz
+
