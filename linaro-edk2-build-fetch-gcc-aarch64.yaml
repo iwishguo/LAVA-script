@@ -12,8 +12,8 @@ metadata:
         - kvm
         - x86
 params:
-    GCC_REV: gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu
-    LINARO_RELEASE: 14.11
+    GCC_URL: http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu.tar.xz
+
 install:
     steps:
 
@@ -22,7 +22,8 @@ install:
 run:
     steps:
        - cd ${HOME}
-       - lava-test-case juno-debug --shell wget -nv http://releases.linaro.org/${LINARO_RELEASE}/components/toolchain/binaries/aarch64-linux-gnu/${GCC_REV}.tar.xz
-       - lava-test-case juno-debug --shell tar -xJf ${GCC_REV}.tar.xz
-       - rm ${GCC_REV}.tar.xz
+       - lava-test-case fetch-gcc --shell wget -nv ${GCC_URL}
+       - export GCC_FILE=`ls gcc-*.tar.xz`
+       - lava-test-case exact-gcc --shell tar -xJf ${GCC_FILE}
+       - lava-test-case remove-gcc-tarball --shell rm ${GCC_FILE}
 
