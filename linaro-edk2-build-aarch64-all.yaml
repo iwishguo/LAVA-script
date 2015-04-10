@@ -12,6 +12,13 @@ metadata:
         - kvm
         - x86
  
+install:
+    steps:
+		   - cd ${HOME}
+			 - wget -nv ${GCC_URL}
+			 - tar -xJf gcc-*.tar.xz
+			 - rm gcc-*.tar.xz
+
 run:
     steps:
        - cd ${HOME}
@@ -90,3 +97,6 @@ run:
        - lava-test-case gcc-${GCC_REV}-hikey-release --shell "../uefi-tools/uefi-build.sh -b RELEASE hikey > build_log"
        - tail -n 50 build_log
        - rm -rf Build
+			 - cd ${HOME}
+			 - rm -rf gcc*aarch64*
+
