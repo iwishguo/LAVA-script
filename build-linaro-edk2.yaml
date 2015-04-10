@@ -42,52 +42,76 @@ run:
        - ls ../uefi-tools
        - export PATH=$PATH:${HOME}/${GCC_REV}/bin
        - echo ${PATH}
-       - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno
+       - lava-test-case juno-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case juno-release --shell ../uefi-tools/uefi-build.sh -b RELEASE juno 
+       - lava-test-case juno-release --shell ../uefi-tools/uefi-build.sh -b RELEASE juno > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case juno-intelbds-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno-intelbds
+       - lava-test-case juno-intelbds-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG juno-intelbds > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case juno-intelbds-release --shell ../uefi-tools/uefi-build.sh -b RELEASE juno-intelbds 
+       - lava-test-case juno-intelbds-release --shell ../uefi-tools/uefi-build.sh -b RELEASE juno-intelbds > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case fvp_full-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG fvp_full
+       - lava-test-case fvp_full-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG fvp_full > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case fvp_full-release --shell ../uefi-tools/uefi-build.sh -b RELEASE fvp_full 
+       - lava-test-case fvp_full-release --shell ../uefi-tools/uefi-build.sh -b RELEASE fvp_full > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case fvp_minimal-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG fvp_minimal
+       - lava-test-case fvp_minimal-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG fvp_minimal > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case fvp_minimal-release --shell ../uefi-tools/uefi-build.sh -b RELEASE fvp_minimal 
+       - lava-test-case fvp_minimal-release --shell ../uefi-tools/uefi-build.sh -b RELEASE fvp_minimal > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case fvp_no_eth-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG fvp_no_eth
+       - lava-test-case fvp_no_eth-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG fvp_no_eth > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case fvp_no_eth-release --shell ../uefi-tools/uefi-build.sh -b RELEASE fvp_no_eth 
+       - lava-test-case fvp_no_eth-release --shell ../uefi-tools/uefi-build.sh -b RELEASE fvp_no_eth > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case rtsm_aarch64-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG rtsm_aarch64
+       - lava-test-case rtsm_aarch64-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG rtsm_aarch64 > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case rtsm_aarch64-release --shell ../uefi-tools/uefi-build.sh -b RELEASE rtsm_aarch64 
+       - lava-test-case rtsm_aarch64-release --shell ../uefi-tools/uefi-build.sh -b RELEASE rtsm_aarch64 > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case foundation_legacy-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG foundation_legacy
+       - lava-test-case foundation_legacy-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG foundation_legacy > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case foundation_legacy-release --shell ../uefi-tools/uefi-build.sh -b RELEASE foundation_legacy 
+       - lava-test-case foundation_legacy-release --shell ../uefi-tools/uefi-build.sh -b RELEASE foundation_legacy > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case qemu64-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG qemu64
+       - lava-test-case qemu64-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG qemu64 > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case qemu64-release --shell ../uefi-tools/uefi-build.sh -b RELEASE qemu64 
+       - lava-test-case qemu64-release --shell ../uefi-tools/uefi-build.sh -b RELEASE qemu64 > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case qemu64-intelbds-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG qemu64-intelbds
+       - lava-test-case qemu64-intelbds-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG qemu64-intelbds > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case qemu64-intelbds-release --shell ../uefi-tools/uefi-build.sh -b RELEASE qemu64-intelbds 
+       - lava-test-case qemu64-intelbds-release --shell ../uefi-tools/uefi-build.sh -b RELEASE qemu64-intelbds > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case mustang-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG mustang
+       - lava-test-case mustang-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG mustang > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case mustang-release --shell ../uefi-tools/uefi-build.sh -b RELEASE mustang 
+       - lava-test-case mustang-release --shell ../uefi-tools/uefi-build.sh -b RELEASE mustang > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case styx-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG styx
+       - lava-test-case styx-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG styx > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case styx-release --shell ../uefi-tools/uefi-build.sh -b RELEASE styx 
+       - lava-test-case styx-release --shell ../uefi-tools/uefi-build.sh -b RELEASE styx > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case hikey-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG hikey
+       - lava-test-case hikey-debug --shell ../uefi-tools/uefi-build.sh -b DEBUG hikey > build_log
+       - tail -n 50 build_log
        - rm -rf Build
-       - lava-test-case hikey-release --shell ../uefi-tools/uefi-build.sh -b RELEASE hikey 
+       - lava-test-case hikey-release --shell ../uefi-tools/uefi-build.sh -b RELEASE hikey > build_log 
+       - tail -n 50 build_log
        - rm -rf Build
 
