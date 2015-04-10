@@ -13,29 +13,89 @@
                     {
                         "git-repo": "http://github.com/iwishguo/LAVA-script.git",
                         "revision": "master",
-                        "testdef": "linaro-edk2-build-fetch-source.yaml",
+                        "testdef": "linaro-edk2-build-fetch-source.yaml"
+                    },
+                    {
                         "parameters": {
                             "GCC_URL": "http://releases.linaro.org/13.04/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.7-2013.04-20130415_linux.tar.xz",
-														"GCC_REV": "4.7" 
+                            "GCC_REV": "4.7" 
                         },
-                        "testdef": "linaro-edk2-build-fetch-gcc-aarch64.yaml",
-                        "testdef": "linaro-edk2-build-aarch64-all.yaml",
-                        "testdef": "linaro-edk2-build-remove-gcc-aarch64.yaml",
-                         "parameters": {
-                            "GCC_URL": "http://releases.linaro.org/14.04/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.8-2014.04_linux.tar.xz",
-														"GCC_REV": "4.8" 
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
+                        "testdef": "linaro-edk2-build-fetch-gcc-aarch64.yaml"
+                    },
+                    {
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/13.04/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.7-2013.04-20130415_linux.tar.xz",
+                            "GCC_REV": "4.7" 
                         },
-                        "testdef": "linaro-edk2-build-fetch-gcc-aarch64.yaml",
-                        "testdef": "linaro-edk2-build-aarch64-all.yaml",
-                        "testdef": "linaro-edk2-build-remove-gcc-aarch64.yaml",
-                          "parameters": {
-                            "GCC_URL": "http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu.tar.xz",
-														"GCC_REV": "4.9" 
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
+                        "testdef": "linaro-edk2-build-aarch64-all.yaml"
+                    },
+                    {
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/13.04/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.7-2013.04-20130415_linux.tar.xz",
+                            "GCC_REV": "4.7" 
                         },
-                        "testdef": "linaro-edk2-build-fetch-gcc-aarch64.yaml",
-                        "testdef": "linaro-edk2-build-aarch64-all.yaml",
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
                         "testdef": "linaro-edk2-build-remove-gcc-aarch64.yaml"
-                   }
+                    },
+                    {
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/14.04/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.8-2014.04_linux.tar.xz",
+                            "GCC_REV": "4.8" 
+                        },
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
+                        "testdef": "linaro-edk2-build-fetch-gcc-aarch64.yaml"
+                    },
+                    {
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/14.04/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.8-2014.04_linux.tar.xz",
+                            "GCC_REV": "4.8" 
+                        },
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
+                        "testdef": "linaro-edk2-build-aarch64-all.yaml"
+                    },
+                    {
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/14.04/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.8-2014.04_linux.tar.xz",
+                            "GCC_REV": "4.8" 
+                        },
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
+                        "testdef": "linaro-edk2-build-remove-gcc-aarch64.yaml"
+                    },
+                    {
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu.tar.xz",
+                            "GCC_REV": "4.9" 
+                        },
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
+                        "testdef": "linaro-edk2-build-fetch-gcc-aarch64.yaml"
+                    },
+                    {
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu.tar.xz",
+                            "GCC_REV": "4.9" 
+                        },
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
+                        "testdef": "linaro-edk2-build-aarch64-all.yaml"
+                    },
+                    {
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-linux-gnu/gcc-linaro-4.9-2014.11-x86_64_aarch64-linux-gnu.tar.xz",
+                            "GCC_REV": "4.9" 
+                        },
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
+                        "testdef": "linaro-edk2-build-remove-gcc-aarch64.yaml"
+                    }
                 ],
                 "timeout": 18000
             }
