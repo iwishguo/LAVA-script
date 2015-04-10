@@ -11,7 +11,7 @@ metadata:
     devices:
         - kvm
         - x86
-params:
+
 install:
     steps:
         - df -h

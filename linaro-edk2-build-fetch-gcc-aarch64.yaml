@@ -11,13 +11,7 @@ metadata:
     devices:
         - kvm
         - x86
-params:
 
-install:
-    steps:
-
-    deps:
- 
 run:
     steps:
        - cd ${HOME}
