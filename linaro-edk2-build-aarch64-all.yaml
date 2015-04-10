@@ -14,11 +14,23 @@ metadata:
  
 install:
     steps:
-       - cd ${HOME}
-       - wget -nv ${GCC_URL}
-       - tar -xJf gcc-*.tar.xz
-       - rm gcc-*.tar.xz
+        - df -h
+        - apt-get clean
+        - df -h
+        - cd ${HOME}
+        - git clone -q http://git.linaro.org/uefi/linaro-edk2.git
+        - git clone -q http://git.linaro.org/uefi/uefi-tools.git
+        - wget -nv ${GCC_URL}
+        - tar -xJf gcc-*.tar.xz
+        - rm gcc-*.tar.xz
 
+    deps:
+        - uuid-dev
+        - acpica-tools
+        - build-essential
+        - python
+        - git-core
+ 
 run:
     steps:
        - cd ${HOME}
@@ -97,6 +109,4 @@ run:
        - lava-test-case gcc-${GCC_REV}-hikey-release --shell "../uefi-tools/uefi-build.sh -b RELEASE hikey > build_log"
        - tail -n 50 build_log
        - rm -rf Build
-       - cd ${HOME}
-       - rm -rf gcc*aarch64*
 
