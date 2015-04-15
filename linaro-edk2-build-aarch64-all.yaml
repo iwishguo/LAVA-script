@@ -18,7 +18,7 @@ install:
         - apt-get clean
         - df -h
         - cd ${HOME}
-        - git clone -q http://git.linaro.org/uefi/linaro-edk2.git
+        - git clone -q http://github.com/tianocore/edk2.git
         - git clone -q http://git.linaro.org/uefi/uefi-tools.git
         - wget -nv ${GCC_URL}
         - tar -xJf gcc-*.tar.xz
@@ -93,24 +93,6 @@ run:
        - tail -n 50 build_log
        - rm -rf Build
        - lava-test-case gcc-${GCC_REV}-qemu64-intelbds-release --shell "../uefi-tools/uefi-build.sh -b RELEASE qemu64-intelbds > build_log"
-       - tail -n 50 build_log
-       - rm -rf Build
-       - lava-test-case gcc-${GCC_REV}-mustang-debug --shell "../uefi-tools/uefi-build.sh -b DEBUG mustang > build_log"
-       - tail -n 50 build_log
-       - rm -rf Build
-       - lava-test-case gcc-${GCC_REV}-mustang-release --shell "../uefi-tools/uefi-build.sh -b RELEASE mustang > build_log"
-       - tail -n 50 build_log
-       - rm -rf Build
-       - lava-test-case gcc-${GCC_REV}-styx-debug --shell "../uefi-tools/uefi-build.sh -b DEBUG styx > build_log"
-       - tail -n 50 build_log
-       - rm -rf Build
-       - lava-test-case gcc-${GCC_REV}-styx-release --shell "../uefi-tools/uefi-build.sh -b RELEASE styx > build_log"
-       - tail -n 50 build_log
-       - rm -rf Build
-       - lava-test-case gcc-${GCC_REV}-hikey-debug --shell "../uefi-tools/uefi-build.sh -b DEBUG hikey > build_log"
-       - tail -n 50 build_log
-       - rm -rf Build
-       - lava-test-case gcc-${GCC_REV}-hikey-release --shell "../uefi-tools/uefi-build.sh -b RELEASE hikey > build_log"
        - tail -n 50 build_log
        - rm -rf Build
 
