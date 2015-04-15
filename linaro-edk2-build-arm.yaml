@@ -1,0 +1,50 @@
+metadata:
+    name: linaro-edk2-build-aarch64-all
+    format: "Lava-Test-Shell Test Definition 1.0"
+    description: "Pure build test for Linaro edk2 all aarch64 target"
+    maintainer:
+        - heyi.guo@linaro.org
+    os:
+        - Debian
+    scope:
+        - functional
+    devices:
+        - kvm
+        - x86
+ 
+install:
+    steps:
+        - df -h
+        - apt-get clean
+        - df -h
+        - cd ${HOME}
+        - git clone -q http://github.com/tianocore/edk2.git
+        - git clone -q http://git.linaro.org/uefi/uefi-tools.git
+        - wget -nv ${GCC_URL}
+        - tar -xJf gcc-*.tar.xz
+        - rm gcc-*.tar.xz
+
+    deps:
+        - uuid-dev
+        - acpica-tools
+        - build-essential
+        - python
+        - git-core
+        - libc6-i386
+        - lib32stdc++6
+        - lib32gcc1
+        - lib32z1
+ 
+run:
+    steps:
+       - cd ${HOME}
+       - export PATH=$PATH:${PWD}/`ls -d gcc*`/bin
+       - echo ${PATH}
+       - cd ${HOME}/linaro-edk2
+       - lava-test-case gcc-${GCC_REV}-tc2-debug --shell "../uefi-tools/uefi-build.sh -b DEBUG juno > build_log"
+       - tail -n 50 build_log
+       - rm -rf Build
+       - lava-test-case gcc-${GCC_REV}-tc2-release --shell "../uefi-tools/uefi-build.sh -b RELEASE juno > build_log"
+       - tail -n 50 build_log
+       - rm -rf Build
+
