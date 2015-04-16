@@ -1,0 +1,38 @@
+{
+    "actions": [
+        {
+            "command": "deploy_linaro_image",
+            "parameters": {
+                "image": "http://images.validation.linaro.org/kvm/large-sid.img.gz"
+            }
+        },
+        {
+            "command": "lava_test_shell",
+            "parameters": {
+                "testdef_repos": [
+                    {
+                        "parameters": {
+                            "GCC_URL": "http://releases.linaro.org/14.04/components/toolchain/binaries/gcc-linaro-aarch64-linux-gnu-4.8-2014.04_linux.tar.xz",
+                            "GCC_REV": "4.8" 
+                        },
+                        "git-repo": "http://github.com/iwishguo/LAVA-script.git",
+                        "revision": "master",
+                        "testdef": "linaro-edk2-build-aarch64-all.yaml"
+                    }
+                ],
+                "timeout": 18000
+            }
+        },
+        {
+            "command": "submit_results",
+            "parameters": {
+                "server": "http://validation.linaro.org/RPC2/",
+                "stream": "/anonymous/heyi-guo/"
+            }
+        }
+    ],
+    "device_type": "kvm",
+    "job_name": "pure-linaro-edk2-build-test-gcc-4.8",
+    "timeout": 1800
+}
+
