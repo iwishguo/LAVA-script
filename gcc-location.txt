@@ -1,0 +1,13 @@
+# gcc for arm
+# 4.9
+http://releases.linaro.org/14.11/components/toolchain/binaries/arm-linux-gnueabihf/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf.tar.xz
+
+# 4.8
+http://releases.linaro.org/14.04/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux.tar.xz
+
+# 4.7
+http://releases.linaro.org/13.04/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux.tar.xz
+
+# 4.6
+http://releases.linaro.org/12.09/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-2012.09-20120921_linux.tar.bz2
+
