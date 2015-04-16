@@ -1,7 +1,7 @@
 metadata:
-    name: linaro-edk2-build-aarch64-all
+    name: linaro-edk2-build-arm-all
     format: "Lava-Test-Shell Test Definition 1.0"
-    description: "Pure build test for Linaro edk2 all aarch64 target"
+    description: "Pure build test for Linaro edk2 ARM target"
     maintainer:
         - heyi.guo@linaro.org
     os:
@@ -12,6 +12,9 @@ metadata:
         - kvm
         - x86
  
+params:
+    EXTRACT_OPTION: -xJf
+
 install:
     steps:
         - df -h
@@ -21,8 +24,8 @@ install:
         - git clone -q http://github.com/tianocore/edk2.git
         - git clone -q http://git.linaro.org/uefi/uefi-tools.git
         - wget -nv ${GCC_URL}
-        - tar -xJf gcc-*.tar.xz
-        - rm gcc-*.tar.xz
+        - tar ${EXTRACT_OPTION} gcc-*.tar.*
+        - rm gcc-*.tar.*
 
     deps:
         - uuid-dev

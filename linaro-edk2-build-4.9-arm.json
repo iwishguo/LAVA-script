@@ -12,8 +12,8 @@
                 "testdef_repos": [
                     {
                         "parameters": {
-                            "GCC_URL": "http://releases.linaro.org/14.04/components/toolchain/binaries/gcc-linaro-arm-linux-gnueabihf-4.8-2014.04_linux.tar.xz",
-                            "GCC_REV": "4.8" 
+                            "GCC_URL": "http://releases.linaro.org/14.11/components/toolchain/binaries/arm-linux-gnueabihf/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf.tar.xz",
+                            "GCC_REV": "4.9" 
                         },
                         "git-repo": "http://github.com/iwishguo/LAVA-script.git",
                         "revision": "master",
@@ -32,7 +32,7 @@
         }
     ],
     "device_type": "kvm",
-    "job_name": "pure-linaro-edk2-build-test-gcc-4.8-arm",
+    "job_name": "pure-linaro-edk2-build-test-gcc-4.9-arm",
     "timeout": 1800
 }
 
