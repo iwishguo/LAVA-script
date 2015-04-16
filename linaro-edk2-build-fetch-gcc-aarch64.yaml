@@ -1,5 +1,5 @@
 metadata:
-    name: linaro-edk2-build-fetch-gcc-aarch64
+    name: linaro-edk2-build-fetch-gcc
     format: "Lava-Test-Shell Test Definition 1.0"
     description: "Fetch aarch64 gcc"
     maintainer:
@@ -12,11 +12,15 @@ metadata:
         - kvm
         - x86
 
+params:
+    EXTRACT_OPTION: -xJf
+
+
 run:
     steps:
        - cd ${HOME}
        - lava-test-case fetch-gcc-${GCC_REV} --shell wget -nv ${GCC_URL}
-       - export GCC_FILE=`ls gcc-*.tar.xz`
-       - lava-test-case exact-gcc-${GCC_REV} --shell tar -xJf ${GCC_FILE}
+       - export GCC_FILE=`ls gcc-*.tar.*`
+       - lava-test-case exact-gcc-${GCC_REV} --shell tar ${EXTRACT_OPTION} ${GCC_FILE}
        - lava-test-case remove-gcc-tarball-${GCC_REV} --shell rm ${GCC_FILE}
 
