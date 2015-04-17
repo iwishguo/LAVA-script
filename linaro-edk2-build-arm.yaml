@@ -43,7 +43,7 @@ run:
        - cd ${HOME}
        - export PATH=$PATH:${PWD}/`ls -d gcc*`/bin
        - echo ${PATH}
-       - cd ${HOME}/linaro-edk2
+       - cd ${HOME}/edk2
        - lava-test-case gcc-${GCC_REV}-tc2-debug --shell "../uefi-tools/uefi-build.sh -b DEBUG juno > build_log"
        - tail -n 50 build_log
        - rm -rf Build
