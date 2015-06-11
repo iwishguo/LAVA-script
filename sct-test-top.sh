@@ -13,12 +13,13 @@ export BUILD_NUMBER=34
 export JOB_NAME=linaro-edk2
 export BUILD_URL=$JOB_NAME
 
-cat << EOF > lava_job_definition_parameters
+#cat << EOF > lava_job_definition_parameters
 IMAGE_URL=http://snapshots.linaro.org/kernel-hwpack/linux-leg-vexpress64/${IMAGE_BUILD_NUMBER}/vexpress64-leg-sd.img.gz
 STARTUP_NSH=http://snapshots.linaro.org/kernel-hwpack/linux-leg-vexpress64/${IMAGE_BUILD_NUMBER}/startup.nsh
-EOF
-BL1_URL=https://snapshots.linaro.org/components/kernel/${JOB_NAME}/${BUILD_NUMBER}/release/fvp_minimal/bl1.bin
-FIP_URL=https://snapshots.linaro.org/components/kernel/${JOB_NAME}/${BUILD_NUMBER}/release/fvp_minimal/fip.bin
+#EOF
+
+BL1_URL=https://snapshots.linaro.org/components/kernel/${JOB_NAME}/${BUILD_NUMBER}/release/fvp-foundation-armbds/bl1.bin
+FIP_URL=https://snapshots.linaro.org/components/kernel/${JOB_NAME}/${BUILD_NUMBER}/release/fvp-foundation-armbds/fip.bin
 
 #rm -rf configs
 #git clone --depth 1 http://git.linaro.org/ci/job/configs.git
