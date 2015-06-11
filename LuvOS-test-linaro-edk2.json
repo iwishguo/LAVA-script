@@ -1,0 +1,31 @@
+{
+    "actions": [
+        {
+            "command": "deploy_linaro_image",
+            "parameters": {
+                "image": "http://snapshots.linaro.org/openembedded/pre-built/luvos/8/luv-live-image.img"
+            }
+        },
+		{
+			"command": "boot_linaro_image",
+			"parameters": {
+				"boot_cmds": [
+					"sendline 2",
+					"expect or any other key to continue.",
+					"sendline "
+				]
+			}
+		},
+		{
+            "command": "submit_results",
+            "parameters": {
+                "server": "http://validation.linaro.org/RPC2/",
+                "stream": "/anonymous/heyi-guo/"
+            }
+        }
+    ],
+    "device_type": "rtsm_fvp_base-aemv8a",
+    "job_name": "LuvOS test for Linaro edk2",
+    "timeout": 1800
+}
+
