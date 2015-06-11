@@ -1,0 +1,96 @@
+{
+  "actions": [
+    {
+      "command": "deploy_linaro_image",
+      "parameters": {
+        "bootloadertype": "uefi",
+        "customize": {
+          "boot:/fvp": [
+            "delete"
+          ],
+          "boot:/rtsm": [
+            "delete"
+          ],
+          "http://releases.linaro.org/14.12/openembedded/images/minimal-initramfs-armv8/linaro-image-minimal-initramfs-genericarmv8-20141212-729.rootfs.cpio.gz": [
+            "boot:/Initrd"
+          ],
+          "http://snapshots.linaro.org/kernel-hwpack/linux-leg-vexpress64/299/startup.nsh": [
+            "boot:/EFI/BOOT/startup.nsh"
+          ],
+          "https://snapshots.linaro.org/components/kernel/linaro-edk2/34/release/fvp-foundation-armbds/bl1.bin": [
+            "boot:/fvp_bl1.bin"
+          ],
+          "https://snapshots.linaro.org/components/kernel/linaro-edk2/34/release/fvp-foundation-armbds/fip.bin": [
+            "boot:/fvp_fip.bin"
+          ]
+        },
+        "image": "http://snapshots.linaro.org/kernel-hwpack/linux-leg-vexpress64/299/vexpress64-leg-sd.img.gz"
+      },
+      "metadata": {
+        "build id": "34",
+        "git URL": "",
+        "git branch": "",
+        "git commit": "",
+        "template": "grub-install"
+      }
+    },
+    {
+      "command": "boot_linaro_image",
+      "parameters": {
+        "boot_cmds": [
+          "expect Start:",
+          "sendline 2",
+          "expect or any other key to continue.",
+          "sendline "
+        ],
+        "options": [
+          "bp.pl011_uart0.untimed_fifos=0",
+          "bp.pl011_uart0.revision=r1p5"
+        ]
+      }
+    },
+    {
+      "command": "lava_command_run",
+      "parameters": {
+        "commands": [
+          "mkdir -p /boot/efi",
+          "mount /dev/vda1 /boot/efi",
+          "grub-install",
+          "cd /boot/efi",
+          "df -h .",
+          "git clone --depth 1 https://github.com/iwishguo/sct-binary.git",
+          "mv sct-binary/startup_reset.nsh startup.nsh",
+          "mv sct-binary/Shell.efi EFI/grub/grubaa64.efi",
+          "mv EFI/BOOT/startup.nsh EFI/BOOT/startup_os.nsh",
+          "rm -rf sct-binary",
+          "df -h .",
+          "cd /",
+          "umount /dev/vda1",
+          "sync"
+        ],
+        "timeout": 9600
+      }
+    },
+    {
+      "command": "boot_linaro_image",
+      "parameters": {
+        "boot_cmds": [
+          "expect Start:",
+          "sendline 1",
+          "expect or any other key to continue.",
+          "sendline "
+        ]
+      }
+    },
+    {
+      "command": "submit_results",
+      "parameters": {
+        "server": "http://validation.linaro.org/RPC2/",
+        "stream": "/anonymous/heyi-guo/"
+      }
+    }
+  ],
+  "device_type": "rtsm_fvp_base_cortex-a57x1-a53x1",
+  "job_name": "linaro-edk2",
+  "timeout": 20000
+}
