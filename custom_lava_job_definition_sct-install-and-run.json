@@ -80,20 +80,33 @@
           "sendline 1",
           "expect or any other key to continue.",
           "sendline ",
-          "expect Press any key within"
+          "expect Press any key within",
+          "expect Done!"
         ]
+      }
+    },
+    {
+      "command": "lava_command_run",
+      "parameters": {
+        "commands": [
+          "mount /dev/vda1 /boot/efi",
+          "cd /boot/efi",
+          "df -h .",
+          "ls -l Sct/Report/report.csv"
+        ],
+        "timeout": 9600
       }
     },
     {
       "command": "submit_results",
       "parameters": {
-        "server": "http://validation.linaro.org/RPC2/",
-        "stream": "/anonymous/heyi-guo/"
+        "server": "http://staging.validation.linaro.org/RPC2/",
+        "stream": "/anonymous/heyi.guo/"
       }
     }
   ],
   "device_type": "rtsm_fvp_base-aemv8a",
   "job_name": "linaro-edk2",
-  "image_boot_msg_timeout": 3600,
+  "boot_cmd_timeout": 3600,
   "timeout": 20000
 }
