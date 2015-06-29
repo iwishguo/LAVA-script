@@ -11,6 +11,27 @@
           "boot:/rtsm": [
             "delete"
           ],
+          "boot:/juno": [
+            "delete"
+          ],
+          "boot:/img.axf": [
+            "delete"
+          ],
+          "boot:/img-foundation.axf": [
+            "delete"
+          ],
+          "boot:/juno_fip.bin": [
+            "delete"
+          ],
+          "boot:/uefi_v2p-ca15-tc1.bin": [
+            "delete"
+          ],
+          "boot:/uefi_v2p-ca5s.bin": [
+            "delete"
+          ],
+          "boot:/uefi_v2p-ca9.bin": [
+            "delete"
+          ],
           "http://releases.linaro.org/14.12/openembedded/images/minimal-initramfs-armv8/linaro-image-minimal-initramfs-genericarmv8-20141212-729.rootfs.cpio.gz": [
             "boot:/Initrd"
           ],
