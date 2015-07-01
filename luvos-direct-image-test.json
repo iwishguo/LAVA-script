@@ -1,0 +1,48 @@
+{
+  "actions": [
+    {
+      "command": "deploy_linaro_image",
+      "parameters": {
+        "bootloadertype": "uefi",
+        "customize": {
+          "http://snapshots.linaro.org/kernel-hwpack/linux-leg-vexpress64/299/startup.nsh": [
+            "boot:/EFI/BOOT/startup.nsh"
+          ],
+          "https://snapshots.linaro.org/components/kernel/linaro-edk2/34/release/fvp-foundation-armbds/bl1.bin": [
+            "boot:/fvp_bl1.bin"
+          ],
+          "https://snapshots.linaro.org/components/kernel/linaro-edk2/34/release/fvp-foundation-armbds/fip.bin": [
+            "boot:/fvp_fip.bin"
+          ]
+        },
+        "image": "http://snapshots.linaro.org/openembedded/pre-built/luvos/29/luv-live-image.img"
+      }
+    },
+    {
+      "command": "boot_linaro_image",
+      "parameters": {
+        "boot_cmds": [
+          "sendline ",
+          "expect Start:",
+          "sendline 2",
+          "expect or any other key to continue.",
+          "sendline "
+        ],
+        "options": [
+          "bp.pl011_uart0.untimed_fifos=0",
+          "bp.pl011_uart0.revision=r1p5"
+        ]
+      }
+    },
+    {
+      "command": "submit_results",
+      "parameters": {
+        "server": "http://validation.linaro.org/RPC2/",
+        "stream": "/anonymous/heyi-guo/"
+      }
+    }
+  ],
+  "device_type": "rtsm_fvp_base_cortex-a57x1-a53x1",
+  "job_name": "LuvOS",
+  "timeout": 1800
+}
